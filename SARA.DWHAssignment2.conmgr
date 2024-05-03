@@ -7,6 +7,6 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=SARA;Initial Catalog=DWHAssignment2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-DWHAssignement2-{156CC050-1856-4D52-8134-9FE6E8EAE0D2}SARA.DWHAssignment2;Auto Translate=False;" />
+      DTS:ConnectionString="Data Source=SARA;Initial Catalog=DWHAssignment2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-DWHAssignement2-{156CC050-1856-4D52-8134-9FE6E8EAE0D2}SARA.DWHAssignment2;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

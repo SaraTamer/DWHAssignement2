@@ -7,12 +7,12 @@
   DTS:CreatorName="SARA\Apex"
   DTS:DTSID="{827F3C0D-F121-43D2-BD8D-95B8A6F34B5A}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{E07134B6-C0EB-4AE2-913B-CC57000A211C}">
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{3C40AB43-B38F-4CBD-B554-5054108B1D23}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -473,8 +473,8 @@ FROM [dbo].[Attendance_Device];</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task 1\Attendance Device Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-QI6CSU0.DWAssignment 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-QI6CSU0.DWAssignment 1]"
+                  connectionManagerID="{156CC050-1856-4D52-8134-9FE6E8EAE0D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SARA.DWHAssignment2]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -514,7 +514,7 @@ FROM [dbo].[Attendance_Device];</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task 1\Attendance Device Source.Outputs[OLE DB Source Output].Columns[In_Out]"
-                      codePage="1256"
+                      codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -528,21 +528,20 @@ FROM [dbo].[Attendance_Device];</property>
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Attendance Device Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
-                      dataType="wstr"
-                      length="10"
+                      dataType="dbDate"
                       name="Date" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Attendance Device Source.Outputs[OLE DB Source Output].ExternalColumns[Employee_Id]"
-                      dataType="i4"
+                      dataType="i2"
                       name="Employee_Id" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Attendance Device Source.Outputs[OLE DB Source Output].ExternalColumns[Time_Only]"
-                      dataType="wstr"
-                      length="16"
-                      name="Time_Only" />
+                      dataType="dbTime2"
+                      name="Time_Only"
+                      scale="7" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Attendance Device Source.Outputs[OLE DB Source Output].ExternalColumns[In_Out]"
-                      codePage="1256"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       name="In_Out" />
@@ -555,24 +554,23 @@ FROM [dbo].[Attendance_Device];</property>
                   <outputColumns>
                     <outputColumn
                       refId="Package\Data Flow Task 1\Attendance Device Source.Outputs[OLE DB Source Error Output].Columns[Employee_Id]"
-                      dataType="i4"
+                      dataType="i2"
                       lineageId="Package\Data Flow Task 1\Attendance Device Source.Outputs[OLE DB Source Error Output].Columns[Employee_Id]"
                       name="Employee_Id" />
                     <outputColumn
                       refId="Package\Data Flow Task 1\Attendance Device Source.Outputs[OLE DB Source Error Output].Columns[Time_Only]"
-                      dataType="wstr"
-                      length="16"
+                      dataType="dbTime2"
                       lineageId="Package\Data Flow Task 1\Attendance Device Source.Outputs[OLE DB Source Error Output].Columns[Time_Only]"
-                      name="Time_Only" />
+                      name="Time_Only"
+                      scale="7" />
                     <outputColumn
                       refId="Package\Data Flow Task 1\Attendance Device Source.Outputs[OLE DB Source Error Output].Columns[Date]"
-                      dataType="wstr"
-                      length="10"
+                      dataType="dbDate"
                       lineageId="Package\Data Flow Task 1\Attendance Device Source.Outputs[OLE DB Source Error Output].Columns[Date]"
                       name="Date" />
                     <outputColumn
                       refId="Package\Data Flow Task 1\Attendance Device Source.Outputs[OLE DB Source Error Output].Columns[In_Out]"
-                      codePage="1256"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       lineageId="Package\Data Flow Task 1\Attendance Device Source.Outputs[OLE DB Source Error Output].Columns[In_Out]"
@@ -989,11 +987,11 @@ FROM [dbo].[Attendance_Device];</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
+                  name="DefaultCodePage">1256</property>
                 <property
                   dataType="System.Boolean"
                   description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
+                  name="AlwaysUseDefaultCodePage">true</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
@@ -1019,8 +1017,8 @@ FROM [dbo].[Attendance_Device];</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task 1\Employee Attendence Details.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-QI6CSU0.DWAssignment 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-QI6CSU0.DWAssignment 1]"
+                  connectionManagerID="{156CC050-1856-4D52-8134-9FE6E8EAE0D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SARA.DWHAssignment2]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1092,14 +1090,14 @@ FROM [dbo].[Attendance_Device];</property>
                       name="Date" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Employee Attendence Details.Inputs[OLE DB Destination Input].ExternalColumns[Time_In]"
-                      dataType="wstr"
-                      length="12"
-                      name="Time_In" />
+                      dataType="dbTime2"
+                      name="Time_In"
+                      scale="3" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Employee Attendence Details.Inputs[OLE DB Destination Input].ExternalColumns[Time_Out]"
-                      dataType="wstr"
-                      length="12"
-                      name="Time_Out" />
+                      dataType="dbTime2"
+                      name="Time_Out"
+                      scale="3" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task 1\Employee Attendence Details.Inputs[OLE DB Destination Input].ExternalColumns[Worked_Hours]"
                       dataType="i4"
@@ -1190,7 +1188,7 @@ where [refTable].[State] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="State" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1256"/&gt;&lt;referenceColumn name="Description" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1256"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="State" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Description" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -1208,8 +1206,8 @@ where [refTable].[State] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task 1\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-QI6CSU0.DWAssignment 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-QI6CSU0.DWAssignment 1]"
+                  connectionManagerID="{156CC050-1856-4D52-8134-9FE6E8EAE0D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SARA.DWHAssignment2]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -2219,7 +2217,7 @@ where [refTable].[State] = ?</property>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Data Flow Task 1\Sort.Inputs[Sort Input].Columns[In_Out]"
-                      cachedCodepage="1256"
+                      cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="3"
                       cachedName="In_Out"
@@ -2306,7 +2304,7 @@ where [refTable].[State] = ?</property>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[In_Out]"
-                      codePage="1256"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       lineageId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[In_Out]"
@@ -2413,7 +2411,7 @@ where [refTable].[State] = ?</property>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Data Flow Task 1\Sort 1.Inputs[Sort Input].Columns[In_Out]"
-                      cachedCodepage="1256"
+                      cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="3"
                       cachedName="In_Out"
@@ -2500,7 +2498,7 @@ where [refTable].[State] = ?</property>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Data Flow Task 1\Sort 1.Outputs[Sort Output].Columns[In_Out]"
-                      codePage="1256"
+                      codePage="1252"
                       dataType="str"
                       length="3"
                       lineageId="Package\Data Flow Task 1\Sort 1.Outputs[Sort Output].Columns[In_Out]"
@@ -2992,7 +2990,7 @@ where [refTable].[State] = ?</property>
                   <inputColumns>
                     <inputColumn
                       refId="Package\Data Flow Task 1\Split in and out.Inputs[Conditional Split Input].Columns[In_Out]"
-                      cachedCodepage="1256"
+                      cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="3"
                       cachedName="In_Out"
@@ -3127,9 +3125,9 @@ where [refTable].[State] = ?</property>
               startId="Package\Data Flow Task 1\Lookup.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Data Flow Task 1.Paths[Merge Join Output2]"
-              endId="Package\Data Flow Task 1\Check Out &gt; Max In.Inputs[Conditional Split Input]"
+              endId="Package\Data Flow Task 1\Add Worked Hours column.Inputs[Derived Column Input]"
               name="Merge Join Output"
-              startId="Package\Data Flow Task 1\Merge Join 1.Outputs[Merge Join Output]" />
+              startId="Package\Data Flow Task 1\Merge Join 2.Outputs[Merge Join Output]" />
             <path
               refId="Package\Data Flow Task 1.Paths[Merge Join Output1]"
               endId="Package\Data Flow Task 1\Check In &lt; Out.Inputs[Conditional Split Input]"
@@ -3137,9 +3135,9 @@ where [refTable].[State] = ?</property>
               startId="Package\Data Flow Task 1\Merge Join.Outputs[Merge Join Output]" />
             <path
               refId="Package\Data Flow Task 1.Paths[Merge Join Output]"
-              endId="Package\Data Flow Task 1\Add Worked Hours column.Inputs[Derived Column Input]"
+              endId="Package\Data Flow Task 1\Check Out &gt; Max In.Inputs[Conditional Split Input]"
               name="Merge Join Output"
-              startId="Package\Data Flow Task 1\Merge Join 2.Outputs[Merge Join Output]" />
+              startId="Package\Data Flow Task 1\Merge Join 1.Outputs[Merge Join Output]" />
             <path
               refId="Package\Data Flow Task 1.Paths[Multicast Output 1]"
               endId="Package\Data Flow Task 1\Merge Join.Inputs[Merge Join Right Input]"
@@ -3225,6 +3223,14 @@ where [refTable].[State] = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Data Flow Task 1\Sort 3"
+          TopLeft="433.742857977626,832.552940898298" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Data Flow Task 1\Sort 4"
+          TopLeft="669.085715572079,787.435293742281" />
+        <NodeLayout
           Size="129.6,41.6"
           Id="Package\Data Flow Task 1\Merge Join"
           TopLeft="641.228572655636,576.752940795743" />
@@ -3233,41 +3239,29 @@ where [refTable].[State] = ?</property>
           Id="Package\Data Flow Task 1\Sort"
           TopLeft="218.142857530591,189.223529328648" />
         <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Data Flow Task 1\Split in and out"
+          TopLeft="386.428577913618,144.529412971236" />
+        <NodeLayout
           Size="140,41.6"
           Id="Package\Data Flow Task 1\Multicast Out"
           TopLeft="607.857144151111,270.823529237488" />
-        <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Data Flow Task 1\Sort 1"
-          TopLeft="627.314286961118,177.411764550374" />
-        <NodeLayout
-          Size="108,41.6"
-          Id="Package\Data Flow Task 1\Min In"
-          TopLeft="662.485715646585,721.45882307093" />
         <NodeLayout
           Size="173.6,41.6"
           Id="Package\Data Flow Task 1\Check Out &gt; Max In"
           TopLeft="394.285715125045,658.576470318106" />
         <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Data Flow Task 1\Sort 2"
-          TopLeft="210.628571793498,490.117646916721" />
-        <NodeLayout
-          Size="132.8,41.6"
-          Id="Package\Data Flow Task 1\Multicast In"
-          TopLeft="196.428571846716,271.658823401386" />
+          Size="108,41.6"
+          Id="Package\Data Flow Task 1\Min In"
+          TopLeft="662.485715646585,721.45882307093" />
         <NodeLayout
           Size="201.6,41.6"
           Id="Package\Data Flow Task 1\Attendance Device Source"
           TopLeft="365.714291772064,9.94117682651463" />
         <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Data Flow Task 1\Sort 4"
-          TopLeft="669.085715572079,787.435293742281" />
-        <NodeLayout
-          Size="138.4,41.6"
-          Id="Package\Data Flow Task 1\Merge Join 1"
-          TopLeft="401.600000766346,573.952941046433" />
+          Size="132.8,41.6"
+          Id="Package\Data Flow Task 1\Multicast In"
+          TopLeft="196.428571846716,271.658823401386" />
         <NodeLayout
           Size="112.8,41.6"
           Id="Package\Data Flow Task 1\Lookup"
@@ -3289,33 +3283,93 @@ where [refTable].[State] = ?</property>
           Id="Package\Data Flow Task 1\Add Worked Hours column"
           TopLeft="508.200000947289,1011.67058794037" />
         <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Data Flow Task 1\Split in and out"
-          TopLeft="386.428577913618,144.529412971236" />
+          Size="106.4,41.6"
+          Id="Package\Data Flow Task 1\Sort 2"
+          TopLeft="210.628571793498,490.117646916721" />
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\Data Flow Task 1\Check In &lt; Out"
           TopLeft="636.057144161754,649.435293765072" />
         <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Data Flow Task 1\Sort 1"
+          TopLeft="627.314286961118,177.411764550374" />
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\Data Flow Task 1\Merge Join 1"
+          TopLeft="401.600000766346,573.952941046433" />
+        <NodeLayout
           Size="110.4,41.6"
           Id="Package\Data Flow Task 1\Max In"
           TopLeft="205.885714635435,363.047058714271" />
-        <NodeLayout
-          Size="138.4,41.6"
-          Id="Package\Data Flow Task 1\Merge Join 2"
-          TopLeft="533.742858190501,916.870587963154" />
         <NodeLayout
           Size="166.4,41.6"
           Id="Package\Data Flow Task 1\Add States column"
           TopLeft="528.742858179857,1089.011764482" />
         <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Data Flow Task 1\Sort 3"
-          TopLeft="433.742857977626,832.552940898298" />
+          Size="138.4,41.6"
+          Id="Package\Data Flow Task 1\Merge Join 2"
+          TopLeft="533.742858190501,916.870587963154" />
         <NodeLayout
           Size="126.4,41.6"
           Id="Package\Data Flow Task 1\Aggregate"
           TopLeft="420.885715093114,741.59999972652" />
+        <EdgeLayout
+          Id="Package\Data Flow Task 1.Paths[Merge Join Output1]"
+          TopLeft="708.842858408695,618.352940795743">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.0823529693288"
+              Start="0,0"
+              End="0,23.5823529693288">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5823529693288" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task 1.Paths[Merge Join Output]"
+          TopLeft="470.800000766346,615.552941046433">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.2857143586994,43.0235292716729"
+              Start="0,0"
+              End="10.2857143586994,35.5235292716729">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5117646358365" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5117646358365"
+                    Point2="0,21.5117646358365"
+                    Point3="4,21.5117646358365" />
+                  <mssgle:LineSegment
+                    End="6.28571435869935,21.5117646358365" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.28571435869935,21.5117646358365"
+                    Point2="10.2857143586994,21.5117646358365"
+                    Point3="10.2857143586994,25.5117646358365" />
+                  <mssgle:LineSegment
+                    End="10.2857143586994,35.5235292716729" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task 1.Paths[Lookup Match Output]"
           TopLeft="616.814286796141,1205.95294095527">
@@ -3336,7 +3390,7 @@ where [refTable].[State] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-57.0600390625,12.0205882309374,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,14.2159007309374,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3484,7 +3538,7 @@ where [refTable].[State] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-14.53517578125,6.73862012167899,29.0703515625,9.4462890625"
+              BoundingBox="-14.53517578125,6.738620121679,29.0703515625,9.4462890625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3508,7 +3562,7 @@ where [refTable].[State] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,12.1849092354566,30.436171875,9.5537109375"
+              BoundingBox="-15.2180859375,12.1849092354567,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3756,7 +3810,7 @@ where [refTable].[State] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="28.9728154612498,-22,16.0617578125,9.1728515625"
+              BoundingBox="37.6119756174998,-15.1728515625,16.0617578125,9.1728515625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3908,62 +3962,6 @@ where [refTable].[State] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task 1.Paths[Merge Join Output2]"
-          TopLeft="470.800000766346,615.552941046433">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="10.2857143586994,43.0235292716729"
-              Start="0,0"
-              End="10.2857143586994,35.5235292716729">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.5117646358365" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.5117646358365"
-                    Point2="0,21.5117646358365"
-                    Point3="4,21.5117646358365" />
-                  <mssgle:LineSegment
-                    End="6.28571435869935,21.5117646358365" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.28571435869935,21.5117646358365"
-                    Point2="10.2857143586994,21.5117646358365"
-                    Point3="10.2857143586994,25.5117646358365" />
-                  <mssgle:LineSegment
-                    End="10.2857143586994,35.5235292716729" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task 1.Paths[Merge Join Output1]"
-          TopLeft="708.842858408695,618.352940795743">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31.0823529693288"
-              Start="0,0"
-              End="0,23.5823529693288">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.5823529693288" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task 1.Paths[Merge Join Output]"
           TopLeft="606.571429568895,958.470587963154">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3987,5 +3985,49 @@ where [refTable].[State] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 1\Attendance Device Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 1\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[State]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 1\Employee Attendence Details">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
